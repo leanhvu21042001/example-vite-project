@@ -18,6 +18,12 @@ const App = () => {
     event.target.reset();
   };
 
+  const handleDeleteTodo = (id) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+
+    setTodos(newTodos);
+  };
+
   return (
     <div>
       <h1>TODO APP</h1>
@@ -32,10 +38,10 @@ const App = () => {
       <h2>List TODO</h2>
       <ol>
         {todos.map((todo, index) => (
-          <li key={`${todo.title}-${index}`}>
+          <li key={`${todo.title}-${index}-${todo.id}`}>
             <h3>{todo.title}</h3>
             <h4>{todo.content}</h4>
-            <button>Delete</button>
+            <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
           </li>
         ))}
       </ol>
