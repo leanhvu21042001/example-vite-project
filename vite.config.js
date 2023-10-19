@@ -5,4 +5,10 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "/example-vite-project/",
+  build: {
+    minify: false,
+  },
+  // legacy: {
+  //   buildSsrCjsExternalHeuristics: true,
+  // },
 });
